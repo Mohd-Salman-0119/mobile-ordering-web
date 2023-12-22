@@ -1,8 +1,7 @@
-const { Router } = require("express");
-const { OrderModel } = require("../models/Order.model")
-const { UserModel } = require("../models/User.model")
+const { express } = require("../imports/modules.imports")
+const { UserModel, OrderModel } = require("../imports/models.imports")
 
-const orderController = Router();
+const orderController = express.Router()
 
 orderController.get("/", async (req, res) => {
      console.log(req.userId)

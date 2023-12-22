@@ -1,8 +1,7 @@
-const { Router } = require("express");
-const { FavoriteModel } = require("../models/Favorite.model")
-const { UserModel } = require("../models/User.model")
+const { express } = require("../imports/modules.imports")
+const { UserModel, FavoriteModel } = require("../imports/models.imports")
 
-const favoriteController = Router();
+const favoriteController = express.Router()
 
 favoriteController.get("/", async (req, res) => {
      console.log(req.userId)

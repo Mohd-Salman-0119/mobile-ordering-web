@@ -1,8 +1,9 @@
-const { Router } = require("express");
-const { MobileModel } = require("../models/Mobile.model")
-const { authorize } = require("../middleware/authorize.middleware")
+const { express } = require("../imports/modules.imports")
+const { MobileModel } = require("../imports/models.imports")
+const { authorize } = require("../imports/middleware.imports")
 
-const mobileController = Router();
+
+const mobileController = express.Router()
 
 mobileController.get("/", async (req, res) => {
      try {

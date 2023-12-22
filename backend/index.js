@@ -1,20 +1,11 @@
-const express = require("express")
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-// import statements
-const { connection } = require("./config/db")
+const { express, bcrypt, jwt, cors } = require("./imports/modules.imports")
+const { connection } = require("./imports/config.imports")
 
-// middleware
-const { authorize } = require("./middleware/authorize.middleware")
-const { authentication } = require("./middleware/authentication.middleware")
+const { authentication, authorize } = require("./imports/middleware.imports")
+const { UserModel } = require("./imports/models.imports")
 
-// models 
-const { UserModel } = require("./models/User.model")
+const { mobileController, orderController, favoriteController } = require("./imports/controllers.imports")
 
-// controllers
-const { mobileController } = require("./controllers/mobile.controller")
-const { orderController } = require("./controllers/order.controller")
-const { favoriteController } = require("./controllers/favorite.controller")
 
 const app = express();
 app.use(express.json());
@@ -54,6 +45,10 @@ app.post("/login", authentication, async (req, res) => {
 app.use("/mobiles", mobileController)
 
 app.use(authorize)
+
+app.use(cors({
+     origin: "*"
+}))
 
 app.use("/order", orderController)
 app.use("/favorite", favoriteController)
