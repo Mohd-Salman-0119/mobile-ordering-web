@@ -1,3 +1,4 @@
+require("dotenv").config()
 const { express, bcrypt, jwt, cors } = require("./imports/modules.imports")
 const { connection } = require("./imports/config.imports")
 
@@ -53,7 +54,7 @@ app.use(cors({
 app.use("/order", orderController)
 app.use("/favorite", favoriteController)
 
-const PORT = 8080;
+const PORT = process.env.PORT;
 app.listen(PORT, async () => {
      try {
           await connection;
