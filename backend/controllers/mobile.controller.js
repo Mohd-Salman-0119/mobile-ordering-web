@@ -8,6 +8,7 @@ const mobileController = express.Router()
 mobileController.get("/", async (req, res) => {
      try {
           const mobiles = await MobileModel.find();
+          console.log(mobiles)
           res.send({ mobiles: mobiles })
      } catch (error) {
           res.send({ msg: "something went wrong. Plz try again leter" })

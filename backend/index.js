@@ -6,6 +6,7 @@ const { authentication, authorize } = require("./imports/middleware.imports")
 const { UserModel } = require("./imports/models.imports")
 
 const { mobileController, orderController, favoriteController } = require("./imports/controllers.imports")
+const { connectDB } = require("./config/db")
 
 
 const app = express();
@@ -43,6 +44,10 @@ app.post("/login", authentication, async (req, res) => {
      }
 })
 
+app.get("/ping", (req, res) => {
+     res.send({ msg: "Pong" })
+})
+
 app.use("/mobiles", mobileController)
 
 app.use(authorize)
@@ -55,13 +60,21 @@ app.use("/order", orderController)
 app.use("/favorite", favoriteController)
 
 const PORT = process.env.PORT;
-app.listen(PORT, async () => {
-     try {
-          await connection;
-          console.log("Connected successfully MongoDB")
-     } catch (error) {
-          console.log("error while connecting to MongoDB")
-          console.log(error)
-     }
-     console.log("Server is runing on PORT", PORT)
+
+connectDB().then(() => {
+     app.listen(PORT, () => {
+          console.log("Server is runing on PORT", PORT)
+     })
 })
+
+
+// app.listen(PORT, async () => {
+//      try {
+//           await connection;
+//           console.log("Connected successfully MongoDB")
+//      } catch (error) {
+//           console.log("error while connecting to MongoDB")
+//           console.log(error)
+//      }
+//      console.log("Server is runing on PORT", PORT)
+// })
