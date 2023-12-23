@@ -1,13 +1,12 @@
 require("dotenv").config()
 const { express, bcrypt, jwt, cors } = require("./imports/modules.imports")
-const { connection } = require("./imports/config.imports")
 
-const { authentication, authorize } = require("./imports/middleware.imports")
+const { authentication, authorize, corsOptions } = require("./imports/middleware.imports")
 const { UserModel } = require("./imports/models.imports")
 
 const { mobileController, orderController, favoriteController } = require("./imports/controllers.imports")
 const { connectDB } = require("./config/db")
-const fs = require("fs")
+
 
 const app = express();
 app.use(express.json());
@@ -58,14 +57,16 @@ app.get("/ping", (req, res) => {
      res.send({ msg: "Pong" })
 })
 
+
+
+
+
+app.use(cors(corsOptions));
+
 app.use("/mobiles", mobileController)
 
+
 app.use(authorize)
-
-app.use(cors({
-     origin: "*"
-}))
-
 app.use("/order", orderController)
 app.use("/favorite", favoriteController)
 
