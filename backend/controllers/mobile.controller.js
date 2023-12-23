@@ -3,6 +3,8 @@ const { MobileModel } = require("../imports/models.imports")
 const { authorize } = require("../imports/middleware.imports")
 
 
+
+
 const mobileController = express.Router()
 
 mobileController.get("/", async (req, res) => {
@@ -59,5 +61,6 @@ mobileController.delete("/:ID", authorize, async (req, res) => {
           res.send({ msg: "Error, while deleted the product" });
      }
 })
+
 
 module.exports = { mobileController }

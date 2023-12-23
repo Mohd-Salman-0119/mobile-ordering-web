@@ -5,7 +5,7 @@ require("dotenv").config();
 const connectDB = async () => {
      try {
           const conn = await mongoose.connect(`${process.env.MONGO_URI}/mobile-ordering-app`);
-          console.log(`MongoDB Connected: ${conn.connection.host}`);
+          console.log(`MongoDB Connected: Successfully`);
      } catch (error) {
           console.log(error);
           process.exit(1);

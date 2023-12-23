@@ -7,10 +7,20 @@ const { UserModel } = require("./imports/models.imports")
 
 const { mobileController, orderController, favoriteController } = require("./imports/controllers.imports")
 const { connectDB } = require("./config/db")
-
+const fs = require("fs")
 
 const app = express();
 app.use(express.json());
+
+app.get("/data", async (req, res) => {
+     res.setHeader("content-type", "text")
+     try {
+          const data = fs.readFileSync("./data.json", { encoding: "utf-8" });
+          res.send(data)
+     } catch (error) {
+
+     }
+})
 
 app.post("/signup", authentication, async (req, res) => {
      const { name, password, email } = req.body
@@ -59,22 +69,19 @@ app.use(cors({
 app.use("/order", orderController)
 app.use("/favorite", favoriteController)
 
+
+
+
+
+
 const PORT = process.env.PORT;
+
 
 connectDB().then(() => {
      app.listen(PORT, () => {
+
           console.log("Server is runing on PORT", PORT)
      })
 })
 
 
-// app.listen(PORT, async () => {
-//      try {
-//           await connection;
-//           console.log("Connected successfully MongoDB")
-//      } catch (error) {
-//           console.log("error while connecting to MongoDB")
-//           console.log(error)
-//      }
-//      console.log("Server is runing on PORT", PORT)
-// })
