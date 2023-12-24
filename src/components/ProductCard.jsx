@@ -20,10 +20,7 @@ const ProductCard = (product) => {
             &#8377;{product.product.actual_price}
           </h1>
           <h1 className="text-xs text-green-800">
-            {product.product.dicount}% Off
-          </h1>
-          <h1 className="text-xs text-green-800">
-            {product.product.processor}
+            {product.product.discount}% Off
           </h1>
         </div>
       </div>

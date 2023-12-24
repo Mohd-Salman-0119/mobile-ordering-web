@@ -7,11 +7,12 @@ const SelectFilter = ({ filterName, data,handleOnChange }) => {
     <div className="flex flex-col my-2 gap-1">
       <label className="text-lg">{filterName}</label>
       <select
-        className="p-2 border outline-none"
+        className="p-2 border outline-none bg-transparent"
         onChange={(e) => handleOnChange(e.target.value, filterName)}
+        
       >
         {data?.map((item, index) => (
-          <option value={item.value} key={index}>
+          <option value={item.value} key={index} className="bg-transparent">
             {item.label}
           </option>
         ))}

@@ -6,6 +6,7 @@ import SelectFilter from "../components/SelectFilter";
 import {
   filterByMemoryRAM,
   filterByName,
+  filterByOS,
   filterByPrice,
   filterByType,
 } from "../constants/constants";
@@ -20,12 +21,15 @@ const Product = () => {
   const handleOnChange = (value, type) => setSeleted({ value, type });
 
   const dispatch = useDispatch();
-
-  const queryString = "?" + seleted?.type?.toLowerCase() + "=" + seleted?.value?.toLowerCase();
+  let queryString = "";
+  if (seleted?.type && seleted?.value) {
+    queryString =
+      "?" + seleted?.type?.toLowerCase() + "=" + seleted?.value?.toLowerCase();
+  }
 
   useEffect(() => {
     dispatch(fetchData(queryString));
-  }, []);
+  }, [queryString]);
 
   return (
     <div
@@ -34,7 +38,7 @@ const Product = () => {
       } transition-all duration-500 px-10 py-5`}
     >
       <div className="flex gap-3">
-        <div className="w-3/12 border sticky top-0 p-2 max-h-min">
+        <div className="w-[35%] sticky top-20 p-3 max-h-svh">
           <h1 className="text-xl font-semibold ">Filters</h1>
           <SelectFilter
             filterName={"Price"}
@@ -56,13 +60,21 @@ const Product = () => {
             data={filterByMemoryRAM}
             handleOnChange={handleOnChange}
           />
+          <SelectFilter
+            filterName={"OS"}
+            data={filterByOS}
+            handleOnChange={handleOnChange}
+          />
         </div>
         <div className="grid grid-cols-3 gap-4">
-          {mobilesData?.map((item, index) => (
-            <Link key={index}>
-              <ProductCard product={item} />
-            </Link>
-          ))}
+          {mobilesData?.map((item, index) => {
+         
+            return (
+              <Link key={index} to={`/products/${item._id}`}>
+                <ProductCard product={item} />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

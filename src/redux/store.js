@@ -4,8 +4,9 @@ import { thunk } from 'redux-thunk'
 
 import { themeReducer } from './theme/themeReducer'
 import { dataReducer } from './dataReducer/dataReducer'
+import { authReducer } from './authReducer/authReducer'
 
-const rootReducer = combineReducers({ themeReducer, dataReducer })
+const rootReducer = combineReducers({ themeReducer, dataReducer, authReducer })
 
 const store = legacy_createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 

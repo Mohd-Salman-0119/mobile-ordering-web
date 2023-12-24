@@ -11,13 +11,18 @@ import {
   faSun,
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
-import { faCartShopping, faShop } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartPlus,
+  faCartShopping,
+  faShop,
+} from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { TOGGLE_THEME } from "../redux/theme/themeReducer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const theme = useSelector((store) => store.themeReducer.theme);
 
   const [menu, setMenu] = useState(false);
@@ -29,6 +34,9 @@ const Navbar = () => {
   const handleHamburgerMenu = () => {
     setMenu((p) => !p);
   };
+
+  const visitToLogin = () => navigate("/login");
+  const visitToCart = () => navigate("/cart");
 
   return (
     <div
@@ -66,8 +74,9 @@ const Navbar = () => {
       <div className="md:flex gap-4 hidden">
         <IconButton
           text={"Cart"}
-          icon={faCartShopping}
+          icon={faCartPlus}
           textClass={"lg:flex hidden"}
+          onClick={visitToCart}
         />
         <IconButton
           text={"Become a Seller"}
@@ -93,6 +102,7 @@ const Navbar = () => {
           text={"Login"}
           icon={faCircleUser}
           textClass={"lg:flex hidden"}
+          onClick={visitToLogin}
         />
       </div>
       {menu && (

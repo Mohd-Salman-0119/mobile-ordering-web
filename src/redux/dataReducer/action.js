@@ -19,7 +19,19 @@ export const fetchData = (queryString = "") => async (dispatch) => {
 
      try {
           dispatch(getDataRequest())
-          const res = await axios.get(`${BASE_URL}/mobiles`);
+          const res = await axios.get(`${BASE_URL}/mobiles${queryString}`);
+          dispatch(getDataSuccess(res.data.mobiles));
+     } catch (error) {
+          dispatch(getDataFailure())
+          console.log("not found")
+          console.log(error)
+     }
+}
+export const fetchSingleProduct = (params) => async (dispatch) => {
+
+     try {
+          dispatch(getDataRequest())
+          const res = await axios.get(`${BASE_URL}/mobiles/${params}`);
           dispatch(getDataSuccess(res.data.mobiles));
      } catch (error) {
           dispatch(getDataFailure())
