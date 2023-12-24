@@ -45,11 +45,11 @@ app.post("/login", authentication, async (req, res) => {
                if (result) {
 
                     const token = jwt.sign({ userId: user._id }, 'devtwon');
-                    res.send({ msg: "Login successfull", token })
+                    res.send({ msg: "Login successfull", auth: true, token })
                }
           });
      } catch (error) {
-          res.send({ msg: "something went worng plz try again leter" })
+          res.send({ msg: "something went worng plz try again leter", auth: false })
      }
 })
 
