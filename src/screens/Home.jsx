@@ -93,7 +93,9 @@ const Home = () => {
           </h1>
           <div className="grid grid-cols-4 gap-4 justify-center items-center my-5">
             {randomProducts?.map((item, index) => (
-              <ProductCard product={item} key={index} />
+              <Link key={index} to={`/products/${item._id}`}>
+                <ProductCard product={item} />
+              </Link>
             ))}
           </div>
         </div>

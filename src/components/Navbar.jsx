@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SiTrustedshops } from "react-icons/si";
 
 import { FaSearch } from "react-icons/fa";
 import { RiMenu4Fill, RiCloseLine } from "react-icons/ri";
-
 import IconButton from "./IconButton";
+
 import {
   faCircleUser,
   faMoon,
@@ -19,10 +19,12 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { TOGGLE_THEME } from "../redux/theme/themeReducer";
 import { Link, useNavigate } from "react-router-dom";
+import { fetchData } from "../redux/dataReducer/action";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const theme = useSelector((store) => store.themeReducer.theme);
 
   const [menu, setMenu] = useState(false);
@@ -37,6 +39,7 @@ const Navbar = () => {
 
   const visitToLogin = () => navigate("/login");
   const visitToCart = () => navigate("/cart");
+  const visitBecomeASeller = () => navigate("/*");
 
   return (
     <div
@@ -49,13 +52,10 @@ const Navbar = () => {
         <h1>Shop</h1>
       </Link>
 
-      <div className="bg-blue-50 2sm:flex hidden items-center p-2 w-[60%] md:w-[50%] lg:w-1/3 rounded-md">
-        <FaSearch className="text-black" />
-        <input
-          type="text"
-          className="text-md outline-none border-none bg-transparent w-full ml-2"
-          placeholder="Search mobiles"
-        />
+      <div className="items-center font-semibold  flex justify-around p-2 w-[60%] md:w-[50%] lg:w-1/3 rounded-md relative">
+        <Link to={"/products"}>Mobiles</Link>
+        <Link to={"/*"}>Laptops</Link>
+        <Link to={"/*"}>Accessories</Link>
       </div>
 
       <div>
@@ -82,6 +82,7 @@ const Navbar = () => {
           text={"Become a Seller"}
           icon={faShop}
           textClass={"lg:flex hidden"}
+          onClick={visitBecomeASeller}
         />
         {theme ? (
           <IconButton

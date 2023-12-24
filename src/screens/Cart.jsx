@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard";
 
 const Cart = () => {
   const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(false);
   const token = useSelector((store) => store.authReducer.token);
   const auth = useSelector((store) => store.authReducer.auth);
   const headers = { Authorization: `Bearer ${token}` };
@@ -21,11 +22,28 @@ const Cart = () => {
   useEffect(() => {
     fetchProduct();
   }, []);
+
   return (
-    <div className="grid grid-cols-4 gap-4 mt-5 px-10">
-      {product?.map((item, index) => {
-        return <ProductCard product={item} />;
-      })}
+    <div>
+      {auth ? (
+        <div>
+          {loading ? (
+            <h1 className="text-3xl text-green-700 font-semibold text-center mt-5">
+              Loading...
+            </h1>
+          ) : (
+            <div className="grid grid-cols-4 gap-4 mt-5 px-10">
+              {product?.map((item, index) => {
+                return <ProductCard product={item} />;
+              })}
+            </div>
+          )}
+        </div>
+      ) : (
+        <h1 className="text-3xl text-green-700 font-semibold text-center mt-5">
+          Login First
+        </h1>
+      )}
     </div>
   );
 };
