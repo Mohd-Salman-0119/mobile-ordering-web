@@ -8,11 +8,11 @@ const { textFilter, sortFilter } = require("../imports/filter.import")
 const mobileController = express.Router()
 
 mobileController.get("/", async (req, res) => {
-     const { os, name, type, memory, price } = req.query;
+     const { os, name, type, memory, price, q } = req.query;
 
      let mobiles = await MobileModel.find();
 
-     mobiles = textFilter(mobiles, os, type, memory)
+     mobiles = textFilter(mobiles, os, type, memory, q)
      mobiles = sortFilter(mobiles, price, name)
 
      try {

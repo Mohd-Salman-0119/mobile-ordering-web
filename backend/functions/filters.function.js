@@ -1,4 +1,4 @@
-const textFilter = (data, os, type, memory,) => {
+const textFilter = (data, os, type, memory, q) => {
      if (os) {
           return data.filter((item => {
                return item.os.toLowerCase().includes(os.toLowerCase())
@@ -9,11 +9,17 @@ const textFilter = (data, os, type, memory,) => {
                return item.type.toLowerCase().includes(type.toLowerCase())
           }))
      }
+     if (q) {
+          return data.filter((item => {
+               return item.name.toLowerCase().includes(q.toLowerCase())
+          }))
+     }
      if (memory) {
           return data.filter((item => {
                return item.memory.RAM.toLowerCase() === memory.toLowerCase()
           }))
      }
+
      return data
 }
 
