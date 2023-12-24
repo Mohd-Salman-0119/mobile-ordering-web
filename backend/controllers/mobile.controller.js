@@ -23,6 +23,16 @@ mobileController.get("/", async (req, res) => {
      }
 })
 
+mobileController.get("/:ID", async (req, res) => {
+     const productID = req.params.ID;
+     try {
+          const product = await MobileModel.findOne({ _id: productID })
+          res.send({ mobile: product })
+     } catch (error) {
+          res.send({ msg: "something went wrong. Plz try again leter" })
+     }
+})
+
 mobileController.post("/", authorize, async (req, res) => {
      const payload = req.body;
      try {
