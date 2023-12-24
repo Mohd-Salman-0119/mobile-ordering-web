@@ -40,6 +40,7 @@ const sortFilter = (data, price, name) => {
                return b.name.localeCompare(a.name)
           })
      }
+     return data
 }
 
 module.exports = { textFilter, sortFilter }
