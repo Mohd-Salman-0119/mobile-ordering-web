@@ -4,10 +4,10 @@ const SelectFilter = ({ filterName, data,handleOnChange }) => {
 
 
   return (
-    <div className="flex flex-col my-2 gap-1">
-      <label className="text-lg">{filterName}</label>
+    <div className="flex flex-col my-1 md:my-2 gap-1">
+      <label className="text-xs md:text-lg">{filterName}</label>
       <select
-        className="p-2 border outline-none bg-transparent"
+        className="md:p-2 p-1 text-xs md:text-base border outline-none bg-transparent"
         onChange={(e) => handleOnChange(e.target.value, filterName)}
         
       >

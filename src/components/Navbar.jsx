@@ -26,6 +26,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const theme = useSelector((store) => store.themeReducer.theme);
+  const auth = useSelector((store) => store.themeReducer.auth);
 
   const [menu, setMenu] = useState(false);
 
@@ -52,7 +53,7 @@ const Navbar = () => {
         <h1>Shop</h1>
       </Link>
 
-      <div className="items-center font-semibold  flex justify-around p-2 w-[60%] md:w-[50%] lg:w-1/3 rounded-md relative">
+      <div className="sm:flex  items-center font-semibold hidden justify-around p-2 w-[60%] md:w-[50%] lg:w-1/3 rounded-md relative">
         <Link to={"/products"}>Mobiles</Link>
         <Link to={"/*"}>Laptops</Link>
         <Link to={"/*"}>Accessories</Link>
@@ -112,8 +113,16 @@ const Navbar = () => {
             theme ? "bg-[#242424] text-white" : "bg-white text-black"
           }`}
         >
-          <IconButton text={"Cart"} icon={faCartShopping} />
-          <IconButton text={"Become a Seller"} icon={faShop} />
+          <IconButton
+            text={"Cart"}
+            icon={faCartShopping}
+            onClick={visitToCart}
+          />
+          <IconButton
+            text={"Become a Seller"}
+            icon={faShop}
+            onClick={visitBecomeASeller}
+          />
           {theme ? (
             <IconButton
               icon={faSun}
@@ -127,7 +136,11 @@ const Navbar = () => {
               text={"Dark"}
             />
           )}
-          <IconButton text={"Login"} icon={faCircleUser} />
+          <IconButton
+            text={"Login"}
+            icon={faCircleUser}
+            onClick={visitToLogin}
+          />
         </div>
       )}
     </div>

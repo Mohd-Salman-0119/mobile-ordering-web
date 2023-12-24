@@ -59,7 +59,9 @@ const Home = () => {
         <div className="px-6">
           <Slider
             {...settings}
-            className="md:my-5 my-3 flex justify-center md:py-5"
+            className={`md:my-5 my-3 flex justify-center md:py-5 ${
+              theme ? "text-white" : "text-black"
+            }`}
           >
             {categories?.map((item, index) => (
               <Link key={index} to={item.path}>
@@ -70,7 +72,11 @@ const Home = () => {
         </div>
 
         <div className="mt-10">
-          <h1 className="text-xl md:text-3xl font-medium">
+          <h1
+            className={`text-xl md:text-3xl font-medium ${
+              theme ? "text-white" : "text-black"
+            }`}
+          >
             Exclusive at e-Shop
           </h1>
           <PosterSlider />
@@ -88,10 +94,14 @@ const Home = () => {
           ))}
         </div>
         <div className="mt-10">
-          <h1 className="text-xl md:text-3xl font-medium">
+          <h1
+            className={`text-xl md:text-3xl font-medium ${
+              theme ? "text-white" : "text-black"
+            }`}
+          >
             Latest smart phones
           </h1>
-          <div className="grid grid-cols-4 gap-4 justify-center items-center my-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 justify-center items-center my-5">
             {randomProducts?.map((item, index) => (
               <Link key={index} to={`/products/${item._id}`}>
                 <ProductCard product={item} />

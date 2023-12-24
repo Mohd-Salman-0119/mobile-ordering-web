@@ -5,7 +5,7 @@ import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/authReducer/action";
 
-const Login = () => {
+const Login = ({ onClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const formRef = useRef(null);
@@ -19,9 +19,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center mt-10">
+    <div className="flex flex-col justify-center items-center mt-10 p-4">
       <form
-        className="flex flex-col gap-2 w-1/3"
+        className="flex flex-col gap-2 w-full md:w-1/3 "
         onSubmit={handleSubmit}
         ref={formRef}
       >
@@ -49,6 +49,14 @@ const Login = () => {
           }
         >
           Login
+        </button>
+        <button
+          className={
+            "border mt-2 justify-center rounded-md bg-blue-700 text-white p-2"
+          }
+          onClick={onClick}
+        >
+          Sign Up
         </button>
       </form>
     </div>

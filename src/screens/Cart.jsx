@@ -32,7 +32,7 @@ const Cart = () => {
               Loading...
             </h1>
           ) : (
-            <div className="grid grid-cols-4 gap-4 mt-5 px-10">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-5 px-3 md:px-10">
               {product?.map((item, index) => {
                 return <ProductCard product={item} />;
               })}
@@ -40,7 +40,7 @@ const Cart = () => {
           )}
         </div>
       ) : (
-        <h1 className="text-3xl text-green-700 font-semibold text-center mt-5">
+        <h1 className="text-3xl text-red-700 font-semibold text-center mt-5">
           Login First
         </h1>
       )}

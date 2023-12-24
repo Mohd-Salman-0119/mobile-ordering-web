@@ -67,22 +67,21 @@ const SingleProduct = () => {
       } `}
     >
       {loading ? (
-        <h1 className="text-3xl text-green-700 font-semibold text-center mt-5">
+        <h1 className="text-3xl text-green-700 font-semibold text-center mt-2 md:mt-5">
           Loading...
         </h1>
       ) : (
-        <div className="gap-3 p-20 flex">
-          <div className="w-[50%] flex justify-center items-center">
-            <img src={product.image} />
+        <div className="gap-3 p-10 md:p-20 md:flex">
+          <div className="md:w-[50%] flex justify-center items-center">
+            <img src={product.image} className="bg-cover" />
           </div>
 
-          <div className="w-full flex flex-col">
-            <h1 className="text-3xl font-semibold">
+          <div className="w-full flex flex-col my-1">
+            <h1 className="text-xl md:text-3xl font-semibold">
               {product.name} {product.memory?.RAM}
             </h1>
-            <div className="flex gap-3 items-end my-5">
+            <div className="flex gap-3 items-end">
               <h1 className="text-2xl font-semibold text-green-700">
-                {" "}
                 &#8377;{product.price}
               </h1>
               <h1 className="text-sm line-through">
@@ -92,21 +91,17 @@ const SingleProduct = () => {
                 {product.discount}% Off
               </h1>
             </div>
-            <div className="flex gap-5 my-2">
-              <h1 className="text-xl font-semibold">
-                RAM: {product?.memory?.RAM}
-              </h1>
-              <h1 className="text-xl font-semibold">
-                ROM: {product?.memory?.storage}
-              </h1>
+            <div className="flex gap-5 my-2 md:text-lg text-sm ">
+              <h1 className="font-semibold">RAM: {product?.memory?.RAM}</h1>
+              <h1 className="font-semibold">ROM: {product?.memory?.storage}</h1>
             </div>
-            <div className="flex gap-5">
-              <h1 className="text-xl font-semibold">
+            <div className="md:flex gap-5 md:text-xl text-sm">
+              <h1 className="font-semibold my-1">
                 Processor: {product.processor}
               </h1>
-              <h1 className="text-xl font-semibold">OS: {product.os}</h1>
+              <h1 className="font-semibold">OS: {product.os}</h1>
             </div>
-            <h1 className="mt-3 text-lg">{product.description}</h1>
+            <h1 className="mt-3 text-xs md:text-lg">{product.description}</h1>
             <div className="flex gap-5 mt-5">
               <IconButton
                 text={"Buy Now"}

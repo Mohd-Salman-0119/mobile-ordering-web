@@ -18,8 +18,18 @@ export const login = (email, password) => async (dispatch) => {
      try {
           dispatch(authRequest());
           const res = await axios.post(`${BASE_URL}/login`, { email, password });
-
+          alert(res.data.msg)
           dispatch(authSuccess(res.data.token))
+     } catch (error) {
+          dispatch(authFailure())
+     }
+}
+export const signup = (name, email, password) => async (dispatch) => {
+     try {
+          dispatch(authRequest());
+          const res = await axios.post(`${BASE_URL}/signup`, { name, email, password });
+          alert(res.data.msg)
+          
      } catch (error) {
           dispatch(authFailure())
      }

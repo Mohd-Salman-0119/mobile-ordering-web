@@ -35,40 +35,41 @@ const Product = () => {
     <div
       className={`${
         theme ? "bg-[#242424] text-white" : "bg-white text-black"
-      } transition-all duration-500 px-10 py-5`}
+      } transition-all duration-500 md:px-10 px-4 py-5`}
     >
-      <div className="flex gap-3">
-        <div className="w-[35%] sticky top-20 p-3 max-h-svh">
+      <div className="flex md:flex-row flex-col gap-3">
+        <div className="md:w-[35%] md:sticky md:top-20 p-3 md:max-h-svh">
           <h1 className="text-xl font-semibold ">Filters</h1>
-          <SelectFilter
-            filterName={"Price"}
-            data={filterByPrice}
-            handleOnChange={handleOnChange}
-          />
-          <SelectFilter
-            filterName={"Name"}
-            data={filterByName}
-            handleOnChange={handleOnChange}
-          />
-          <SelectFilter
-            filterName={"Type"}
-            data={filterByType}
-            handleOnChange={handleOnChange}
-          />
-          <SelectFilter
-            filterName={"Memory"}
-            data={filterByMemoryRAM}
-            handleOnChange={handleOnChange}
-          />
-          <SelectFilter
-            filterName={"OS"}
-            data={filterByOS}
-            handleOnChange={handleOnChange}
-          />
+          <div className="flex md:flex-col flex-wrap gap-2">
+            <SelectFilter
+              filterName={"Price"}
+              data={filterByPrice}
+              handleOnChange={handleOnChange}
+            />
+            <SelectFilter
+              filterName={"Name"}
+              data={filterByName}
+              handleOnChange={handleOnChange}
+            />
+            <SelectFilter
+              filterName={"Type"}
+              data={filterByType}
+              handleOnChange={handleOnChange}
+            />
+            <SelectFilter
+              filterName={"Memory"}
+              data={filterByMemoryRAM}
+              handleOnChange={handleOnChange}
+            />
+            <SelectFilter
+              filterName={"OS"}
+              data={filterByOS}
+              handleOnChange={handleOnChange}
+            />
+          </div>
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid  sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {mobilesData?.map((item, index) => {
-         
             return (
               <Link key={index} to={`/products/${item._id}`}>
                 <ProductCard product={item} />
