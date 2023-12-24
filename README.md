@@ -1,13 +1,16 @@
-# 📱 Mobile Ordering App
+# 📱 Mobile Ordering Website
 
 Welcome to the Mobile Ordering App, a responsive MERN stack application. This app was built in 4 days and is designed to provide a seamless mobile ordering experience. It's perfect for users who want to order on the go, and it's fully responsive, so it looks great on any device! 🌐
 
+![home](https://github.com/Mohd-Salman-0119/mobile-ordering-web/assets/112762975/dced17dd-d05c-4b58-ad89-fdea394a1996)
+
+
 ## 🛠️ Tech Stack
 
-- 🍃 MongoDB: A source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.
-- 🚀 Express.js: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
-- ⚛️ React.js: A JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.
-- 💚 Node.js: An open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser.
+- 🍃 MongoDB
+- 🚀 Express.js
+- ⚛️ React.js
+- 💚 Node.js
 
 ## 🚀 Getting Started
 
@@ -41,4 +44,17 @@ Follow these steps to get a copy of the project up and running on your local mac
 2. Open the terminal and run `npm i` or `npm install` to install the dependencies.
 3. Run `npm run dev` to start the frontend server.
 
+![product](https://github.com/Mohd-Salman-0119/mobile-ordering-web/assets/112762975/d26f04fe-a33d-4e9c-85b2-fca6eef10ed3)
+
+
 Now, you're all set to explore the code! Happy coding! 🎉
+
+## 🎥 Demo Video
+
+Here's a quick demo of the Mobile Ordering App:
+
+
+https://github.com/Mohd-Salman-0119/mobile-ordering-web/assets/112762975/861188c4-2106-43db-8469-8bf4091374bb
+
+
+
