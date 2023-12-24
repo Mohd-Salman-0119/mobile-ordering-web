@@ -10,6 +10,7 @@ const { connectDB } = require("./config/db")
 
 const app = express();
 app.use(express.json());
+app.use(cors(corsOptions));
 
 app.get("/data", async (req, res) => {
      res.setHeader("content-type", "text")
@@ -61,7 +62,7 @@ app.get("/ping", (req, res) => {
 
 
 
-app.use(cors(corsOptions));
+
 
 app.use("/mobiles", mobileController)
 
