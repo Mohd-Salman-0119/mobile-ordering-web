@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://aggressive-foal-trunks.cyclic.app'

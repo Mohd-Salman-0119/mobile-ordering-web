@@ -1,16 +1,22 @@
 const { express } = require("../imports/modules.imports")
 const { MobileModel } = require("../imports/models.imports")
 const { authorize } = require("../imports/middleware.imports")
-
+const { textFilter, sortFilter } = require("../imports/filter.import")
 
 
 
 const mobileController = express.Router()
 
 mobileController.get("/", async (req, res) => {
+     const { os, name, type, memory, price } = req.query;
+
+     let mobiles = await MobileModel.find();
+
+     mobiles = textFilter(mobiles, os, type, memory)
+     mobiles = sortFilter(mobiles, price, name)
+
      try {
-          const mobiles = await MobileModel.find();
-          console.log(mobiles)
+
           res.send({ mobiles: mobiles })
      } catch (error) {
           res.send({ msg: "something went wrong. Plz try again leter" })

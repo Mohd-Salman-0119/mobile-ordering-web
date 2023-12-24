@@ -18,6 +18,23 @@ import personalCategory from './images/personal-category.png'
 import watchCategory from './images/watch-category.png'
 import tabletCategory from './images/tablet-category.png'
 
+// posters
+import posterOne from './images/poster1.png'
+import posterTwo from './images/poster2.png'
+import posterThree from './images/poster3.png'
+import posterFour from './images/poster4.png'
+import posterFive from './images/poster5.png'
+
+// brands
+import samsung from './icons/samsung.png'
+import oppo from './icons/oppo.png'
+import realme from './icons/realme.png'
+import apple from './icons/apple.png'
+import readmi from './icons/readmi.png'
+import hp from './icons/hp.png'
+import oneplus from './icons/oneplus.png'
+import vivo from './icons/vivo.png'
+
 
 export {
 
@@ -36,7 +53,20 @@ export {
      televisionCategory,
      accessoriesCategory,
      personalCategory,
-
      watchCategory,
-     tabletCategory
+     tabletCategory,
+     // posters
+     posterOne,
+     posterTwo,
+     posterThree,
+     posterFour,
+     posterFive,
+     // brands
+     samsung,
+     oneplus,
+     oppo,
+     apple,
+     vivo,
+     hp,
+     readmi, realme
 }

@@ -14,6 +14,7 @@ import {
 import { faCartShopping, faShop } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { TOGGLE_THEME } from "../redux/theme/themeReducer";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -33,12 +34,12 @@ const Navbar = () => {
     <div
       className={`${
         theme ? "bg-[#242424] text-white" : "bg-white text-black"
-      } flex justify-between py-2 px-5 lg:px-20 items-center transition-all duration-500 shadow-sm sticky top-0 z-50`}
+      } flex justify-between py-3 px-5 lg:px-20 items-center transition-all duration-500 shadow-md sticky top-0 z-50`}
     >
-      <div className="text-2xl flex gap-2 font-semibold items-center">
+      <Link className="text-2xl flex gap-2 font-semibold items-center" to={"/"}>
         <SiTrustedshops />
         <h1>Shop</h1>
-      </div>
+      </Link>
 
       <div className="bg-blue-50 2sm:flex hidden items-center p-2 w-[60%] md:w-[50%] lg:w-1/3 rounded-md">
         <FaSearch className="text-black" />
@@ -48,6 +49,7 @@ const Navbar = () => {
           placeholder="Search mobiles"
         />
       </div>
+
       <div>
         {menu ? (
           <RiCloseLine
@@ -94,7 +96,11 @@ const Navbar = () => {
         />
       </div>
       {menu && (
-        <div className="md:hidden flex flex-col bg-white shadow-sm border border-gray-300 p-1 absolute right-5 top-[4.1rem] rounded-md px-5 py-3 animate-scale-up-center ">
+        <div
+          className={`md:hidden flex flex-col shadow-sm border border-gray-300 p-1 absolute right-5 top-[4.1rem] rounded-md px-5 py-3 animate-scale-up-center ${
+            theme ? "bg-[#242424] text-white" : "bg-white text-black"
+          }`}
+        >
           <IconButton text={"Cart"} icon={faCartShopping} />
           <IconButton text={"Become a Seller"} icon={faShop} />
           {theme ? (
