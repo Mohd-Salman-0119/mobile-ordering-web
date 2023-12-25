@@ -18,7 +18,6 @@ const Cart = () => {
       console.log("error while fetching");
     }
   };
-  console.log(product);
   useEffect(() => {
     fetchProduct();
   }, []);

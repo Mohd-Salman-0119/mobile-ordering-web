@@ -35,7 +35,6 @@ const SingleProduct = () => {
 
   const headers = { Authorization: `Bearer ${token}` };
 
-  console.log(token);
 
   const handleAddToCart = async () => {
     if (auth) {

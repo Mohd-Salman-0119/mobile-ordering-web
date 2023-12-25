@@ -24,7 +24,6 @@ const Home = () => {
   const randomProducts = shuffledMobilesData.slice(0, 4);
 
   useEffect(() => {
-    console.log("yes");
     dispatch(fetchData());
   }, []);
 
