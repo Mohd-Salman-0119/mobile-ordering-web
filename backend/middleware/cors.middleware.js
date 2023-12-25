@@ -1,6 +1,6 @@
 
 
-const allowedOrigins = ['http://127.0.0.1:5173', 'https://aggressive-foal-trunks.cyclic.app', 'http://localhost:8080'];
+const allowedOrigins = ['http://127.0.0.1:5173', 'https://aggressive-foal-trunks.cyclic.app', 'http://localhost:8080', 'https://mobile-ordering-app-beta.vercel.app'];
 
 // CORS middleware with origin check function
 const corsOptions = {
